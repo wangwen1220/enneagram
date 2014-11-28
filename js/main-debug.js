@@ -32,12 +32,19 @@
       // pagination: '.pagination',
       // paginationClickable: true,
       onFirstInit: function(swiper) {
+        // todo
         $('.swiper-responsive').removeClass('fn-vh');
       }
     }).on('click', '.swiper-nav a', function(e) {
       $(e.delegateTarget).data('swiper').swipeNext();
     }).on('click', 'label', function(e) {
-      $(e.delegateTarget).data('swiper').swipeNext();
+      var $this = $(this);
+      if ($this.parents('.swiper-slide').is(':last')) {
+        alert('test');
+      }
+      setTimeout(function() {
+        $(e.delegateTarget).data('swiper').swipeNext();
+      }, 300);
     });
   });
 })(jQuery);

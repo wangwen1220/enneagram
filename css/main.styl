@@ -28,7 +28,7 @@ html
   height 100%
   font-size 62.5%
   // background #EFEFEF url(../img/bg.png) fixed;
-  background #F3F3F3
+  background #f7f7f7
 body
   font-family fonts
   font-size 1.2rem
@@ -325,6 +325,7 @@ textarea
 
 // Header
 header
+  display none
   position relative
   z-index 1
   min-height 32px
@@ -380,9 +381,9 @@ footer
 // Main
 main
   & > h1
-    margin 15px 0 25px
+    margin 15px 0 30px
     text-align center
-    font-size 24px
+    font-size 28px
     color #000
     -webkit-box-reflect below -0.5555em -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.3, transparent), color-stop(0.7, rgba(255, 255, 255, 0.1)), to(transparent))
     -moz-box-reflect below -0.5555em -moz-linear-gradient(top, transparent 0%, transparent 30%, rgba(255, 255, 255, 0.3) 100%)
@@ -392,11 +393,11 @@ main
 
   & > summary
     margin 15px auto
-    padding 8px
+    padding 10px
     width tests-width
     text-align center
-    border-radius 1px
-    background #e1e1e1
+    border-radius 2px
+    background #ececec
 
     & > strong
-      color #e00
+      color red
