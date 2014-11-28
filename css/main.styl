@@ -4,10 +4,12 @@ support-for-ie = false
 
 @import 'nib'
 @import 'wcss'
+@import 'swiper.css'
 
 /* Var
 ============================================================================= */
 fonts = 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif
+tests-width = 580px
 
 /* Reset
 ============================================================================= */
@@ -16,24 +18,22 @@ fonts = 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif
 *:after
   box-sizing border-box
 
-::-moz-selection
-  background #b3d4fc
-  text-shadow none
-
+::-moz-selection,
 ::selection
-  background #b3d4fc
   text-shadow none
+  color #fff
+  background #b3d4fc
 
 html
-  font-size 10px
-  background dark-gray
-
+  height 100%
+  font-size 62.5%
+  // background #EFEFEF url(../img/bg.png) fixed;
+  background #F3F3F3
 body
   font-family fonts
   font-size 1.2rem
   line-height 1.4
   color #333
-  background-color #fff
 
 // TODO
 h1,
@@ -192,37 +192,211 @@ textarea
       float left
       width 100%
 
+// swiper 模块 for swiper.js
+.swiper
+  margin 0 auto
+  position relative
+  overflow hidden
+  backface-visibility hidden
+  z-index 1 // Fix of Webkit flickering
+
+  & > .swiper-wrapper
+    // box-sizing content-box
+    position relative
+    width 100%
+    transition-property transform, left, top
+    transition-duration 0s
+    transform translate3d(0px,0,0)
+    transition-timing-function ease
+
+    & > .swiper-slide
+      // box-sizing content-box
+      float left
+
+  &.swiper-free-mode > .swiper-wrapper
+    transition-timing-function ease-out
+    margin 0 auto
+
+  // IE10 Windows Phone 8 Fixes
+  &.swiper-wp8-horizontal
+    -ms-touch-action pan-y
+
+  &.swiper-wp8-vertical
+    -ms-touch-action pan-x
+
 /* TPL
 ========================================================================== */
 // w-recommend 模块
-.w-recommend
-  margin 1rem 0
 
 /* Layout
 ========================================================================== */
+// Common
+.swiper-responsive
+  height 200px
+  // outline 1px solid #0f0
+
+  & .swiper-slide-active
+    /* Specific active slide styling */
+
+  & .swiper-slide-visible
+    /* Specific visible slide styling */
+    text-align left
+
+  // tests
+  & .tests
+    position relative
+    margin 0 auto
+    // padding 1em 0
+    width tests-width
+    // height 60%
+    // border-radius 10px
+    // box-shadow 1px 3px 6px rgba(0, 0, 0, .2)
+    // border 1px #e8e8e8 solid
+    // font-size 1.4rem
+    // background #fff
+
+    & > label
+      position relative
+      display block
+      margin-bottom 2em
+      padding 1.2em 1em
+      border 1px #e8e8e8 solid
+      font-size 1.4rem
+      background #fff
+      cursor pointer
+
+      &:before,
+      &:after
+        content ''
+        position absolute
+        z-index -2
+        bottom 15px
+        width 50%
+        height 20%
+        max-width 300px
+        box-shadow 0 15px 10px rgba(0, 0, 0, .7)
+
+      &:before
+        left 10px
+        transform rotate(-3deg)
+
+      &:after
+        right 10px
+        transform rotate(3deg)
+
+      &:nth-child(odd)
+        background #E1FED8
+
+      &:nth-child(even)
+        background #F9F9E6
+
+  // Nav
+  & > .swiper-nav
+    display none
+    position absolute
+    bottom 20px
+    left 0
+    width 100%
+    text-align center
+
+    & > a
+      display inline-block
+      margin 0 30px
+      height 28px
+      line-height 26px
+      width 100px
+      border 1px #333 solid
+      font-size 1.4rem
+      cursor pointer
+      text-decoration none
+
+  // Pagination
+  & .swiper-pagination
+    /* Stylize pagination */
+
+  & .swiper-pagination-switch
+    /* Stylize pagination button */
+
+  & .swiper-active-switch
+    /* Specific active button style */
+
+  & .swiper-visible-switch
+    /* Specific visible button style */
+
 // Header
-#header
-  // position fixed
-  // z-index 1
-  // top 0
-  // width 100%
+header
   position relative
-  height 56px
-  border-bottom 1px #D54646 solid
-  background dark-red
+  z-index 1
+  min-height 32px
+  overflow hidden
+  color #fff
+  background #333
+
+  & > nav
+    margin 0 auto
+    width 960px
+
+    & > h1
+      float left
+      padding 0 10px
+      line-height 32px
+      font-size 18px
+      font-weight normal
+
+    & > ul
+      float right
+      font-weight bold
+      color #fff
+
+      & > li
+        float left
+        padding 0 20px
+        height 32px
+        line-height 32px
+        text-shadow 0 0 5px rgba(255, 255, 255, 0.3)
+
+        & > a
+          display block
+          height 32px
+          line-height 32px
+          color #888
+          text-shadow none
+
+        & > a:hover,
+        & > a:focus
+          color #ddd
 
 // Footer
-#footer
-  margin-top 30px
-  padding 15px 0 30px
-  // padding 15px 0 70px
-  text-align center
-  background light-gray
+footer
+  display none
+  position absolute
+  bottom 0
+  left 0
+  width 100%
 
-  & .copyright
-    margin 5px 0
-    color: #666
+  & > p
+    text-align center
 
 // Main
-#main
-  background #fff
+main
+  & > h1
+    margin 15px 0 25px
+    text-align center
+    font-size 24px
+    color #000
+    -webkit-box-reflect below -0.5555em -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.3, transparent), color-stop(0.7, rgba(255, 255, 255, 0.1)), to(transparent))
+    -moz-box-reflect below -0.5555em -moz-linear-gradient(top, transparent 0%, transparent 30%, rgba(255, 255, 255, 0.3) 100%)
+
+  & > h2
+    display none
+
+  & > summary
+    margin 15px auto
+    padding 8px
+    width tests-width
+    text-align center
+    border-radius 1px
+    background #e1e1e1
+
+    & > strong
+      color #e00

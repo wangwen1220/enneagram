@@ -28,9 +28,16 @@
     var $main = $('main');
 
     // 初始化 Swiper
-    var iSwiper = new Swiper('.swiper-container', {
+    $('.swiper-responsive').swiper({
       // pagination: '.pagination',
-      // paginationClickable: true
+      // paginationClickable: true,
+      onFirstInit: function(swiper) {
+        $('.swiper-responsive').removeClass('fn-vh');
+      }
+    }).on('click', '.swiper-nav a', function(e) {
+      $(e.delegateTarget).data('swiper').swipeNext();
+    }).on('click', 'label', function(e) {
+      $(e.delegateTarget).data('swiper').swipeNext();
     });
   });
 })(jQuery);
