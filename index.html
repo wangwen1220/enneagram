@@ -5,7 +5,10 @@
   <title>九行人格测试</title>
   <meta name="author" content="Steven">
   <link rel="stylesheet" href="css/main.css">
-  <!-- <script src="js/cssrefresh.js"></script> -->
+  <script src="js/jquery.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/main-debug.js"></script>
 </head>
 
 <body>
@@ -23,8 +26,8 @@
   <main>
     <h1>九型人格测试</h1>
     <h2>以下每一對句子中, 選擇其中一句較為能夠形容你的。</h2>
-    <summary>总计<strong>144</strong>道题,现在是第<strong>1</strong>题，还有<strong>143</strong>道，为提高测试准确率，请凭直觉快速选择并在15分钟内完成！</summary>
-    <div class="swiper swiper-responsive fn-vh">
+    <summary id="js-counter">总计<strong class="total">144</strong>道题,现在是第<strong class="current">1</strong>题，还有<strong class="left">143</strong>道，为提高测试准确率，请凭直觉快速选择并在15分钟内完成！</summary>
+    <div id="swiper-responsive" class="swiper swiper-responsive fn-vh">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="tests">
@@ -68,10 +71,5 @@
   <footer>
     <p>&copy; 2014 <cite>Steven</cite></p>
   </footer>
-
-  <script src="js/jquery.js"></script>
-  <script src="js/swiper.js"></script>
-  <script src="js/chart.js"></script>
-  <script src="js/main-debug.js"></script>
 </body>
 </html>

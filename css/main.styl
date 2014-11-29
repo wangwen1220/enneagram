@@ -230,99 +230,6 @@ textarea
 
 /* Layout
 ========================================================================== */
-// Common
-.swiper-responsive
-  height 200px
-  // outline 1px solid #0f0
-
-  & .swiper-slide-active
-    /* Specific active slide styling */
-
-  & .swiper-slide-visible
-    /* Specific visible slide styling */
-    text-align left
-
-  // tests
-  & .tests
-    position relative
-    margin 0 auto
-    // padding 1em 0
-    width tests-width
-    // height 60%
-    // border-radius 10px
-    // box-shadow 1px 3px 6px rgba(0, 0, 0, .2)
-    // border 1px #e8e8e8 solid
-    // font-size 1.4rem
-    // background #fff
-
-    & > label
-      position relative
-      display block
-      margin-bottom 2em
-      padding 1.2em 1em
-      border 1px #e8e8e8 solid
-      font-size 1.4rem
-      background #fff
-      cursor pointer
-
-      &:before,
-      &:after
-        content ''
-        position absolute
-        z-index -2
-        bottom 15px
-        width 50%
-        height 20%
-        max-width 300px
-        box-shadow 0 15px 10px rgba(0, 0, 0, .7)
-
-      &:before
-        left 10px
-        transform rotate(-3deg)
-
-      &:after
-        right 10px
-        transform rotate(3deg)
-
-      &:nth-child(odd)
-        background #E1FED8
-
-      &:nth-child(even)
-        background #F9F9E6
-
-  // Nav
-  & > .swiper-nav
-    display none
-    position absolute
-    bottom 20px
-    left 0
-    width 100%
-    text-align center
-
-    & > a
-      display inline-block
-      margin 0 30px
-      height 28px
-      line-height 26px
-      width 100px
-      border 1px #333 solid
-      font-size 1.4rem
-      cursor pointer
-      text-decoration none
-
-  // Pagination
-  & .swiper-pagination
-    /* Stylize pagination */
-
-  & .swiper-pagination-switch
-    /* Stylize pagination button */
-
-  & .swiper-active-switch
-    /* Specific active button style */
-
-  & .swiper-visible-switch
-    /* Specific visible button style */
-
 // Header
 header
   display none
@@ -401,3 +308,96 @@ main
 
     & > strong
       color red
+
+// Swiper
+#swiper-responsive
+  height 200px
+  // outline 1px solid #0f0
+
+  & .swiper-slide-active
+    /* Specific active slide styling */
+
+  & .swiper-slide-visible
+    /* Specific visible slide styling */
+    text-align left
+
+  // tests
+  & .tests
+    position relative
+    margin 0 auto
+    // padding 1em 0
+    width tests-width
+    // height 60%
+    // border-radius 10px
+    // box-shadow 1px 3px 6px rgba(0, 0, 0, .2)
+    // border 1px #e8e8e8 solid
+    // font-size 1.4rem
+    // background #fff
+
+    & > label
+      position relative
+      display block
+      margin-bottom 2em
+      padding 1.2em 1em
+      border 1px #e8e8e8 solid
+      font-size 1.4rem
+      background #fff
+      cursor pointer
+
+      &:before,
+      &:after
+        content ''
+        position absolute
+        z-index -2
+        bottom 15px
+        width 50%
+        height 20%
+        max-width 300px
+        box-shadow 0 15px 10px rgba(0, 0, 0, .7)
+
+      &:before
+        left 10px
+        transform rotate(-3deg)
+
+      &:after
+        right 10px
+        transform rotate(3deg)
+
+      &:nth-child(odd)
+        background #E1FED8
+
+      &:nth-child(even)
+        background #F9F9E6
+
+  // Nav
+  & > .swiper-nav
+    // display none
+    position absolute
+    bottom 20px
+    left 0
+    width 100%
+    text-align center
+
+    & > a
+      display inline-block
+      margin 0 30px
+      height 28px
+      line-height 26px
+      width 100px
+      border 1px #333 solid
+      font-size 1.4rem
+      cursor pointer
+      text-decoration none
+
+  // Pagination
+  & .swiper-pagination
+    /* Stylize pagination */
+
+  & .swiper-pagination-switch
+    /* Stylize pagination button */
+
+  & .swiper-active-switch
+    /* Specific active button style */
+
+  & .swiper-visible-switch
+    /* Specific visible button style */
