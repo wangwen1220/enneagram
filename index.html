@@ -8,6 +8,8 @@
   <script src="js/jquery.js"></script>
   <script src="js/swiper.js"></script>
   <script src="js/chart.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/tests.js"></script>
   <script src="js/main-debug.js"></script>
 </head>
 
@@ -71,5 +73,18 @@
   <footer>
     <p>&copy; 2014 <cite>Steven</cite></p>
   </footer>
+
+  <template id="tests">
+    <div class="swiper-wrapper">
+    {{each tests}}
+      <div class="swiper-slide">
+        <div class="tests">
+          <label><input type="radio" name="test{{$index}}" value="{{$value.type1}}"> <strong>选项一：</strong> {{$value.test1}}</label>
+          <label><input type="radio" name="test{{$index}}" value="{{$value.type2}}"> <strong>选项二：</strong> {{$value.test2}}</label>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </template>
 </body>
 </html>

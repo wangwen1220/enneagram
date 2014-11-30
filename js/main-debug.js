@@ -30,6 +30,8 @@
     var $counter = $('#js-counter');
 
     // 初始化 Swiper
+    $swiper[0].innerHTML = template('tests', tests);;
+
     $swiper.swiper({
       // pagination: '.pagination',
       // paginationClickable: true,
