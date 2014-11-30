@@ -10,25 +10,26 @@
   <script src="js/chart.js"></script>
   <script src="js/template.js"></script>
   <script src="js/tests.js"></script>
-  <script src="js/main-debug.js"></script>
+  <script src="js/main.js"></script>
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <nav>
       <h1><a href="#">九行人格</a></h1>
       <ul>
-        <li><a href="#">Getting</a></li>
-        <li><a href="#">Docs</a></li>
-        <li><a href="#">GitHub</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
       </ul>
     </nav>
-  </header>
+  </header> -->
 
   <main>
     <h1>九型人格测试</h1>
     <h2>以下每一對句子中, 選擇其中一句較為能夠形容你的。</h2>
     <summary id="js-counter">总计<strong class="total">144</strong>道题,现在是第<strong class="current">1</strong>题，还有<strong class="left">143</strong>道，为提高测试准确率，请凭直觉快速选择并在15分钟内完成！</summary>
+
     <div id="swiper-responsive" class="swiper swiper-responsive fn-vh">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -70,17 +71,15 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2014 <cite>Steven</cite></p>
-  </footer>
+  <footer><p>&copy; 2014 <cite>Steven</cite></p></footer>
 
   <template id="tests">
     <div class="swiper-wrapper">
-    {{each tests}}
+    {{each list}}
       <div class="swiper-slide">
         <div class="tests">
-          <label><input type="radio" name="test{{$index}}" value="{{$value.type1}}"> <strong>选项一：</strong> {{$value.test1}}</label>
-          <label><input type="radio" name="test{{$index}}" value="{{$value.type2}}"> <strong>选项二：</strong> {{$value.test2}}</label>
+          <label><input type="radio" name="test{{$index}}" value="{{$value.test1.type}}"> <strong>选项一：</strong> {{$value.test1.title}}</label>
+          <label><input type="radio" name="test{{$index}}" value="{{$value.test2.type}}"> <strong>选项二：</strong> {{$value.test2.title}}</label>
         </div>
       </div>
       {{/each}}
