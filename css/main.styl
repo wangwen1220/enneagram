@@ -183,11 +183,11 @@ textarea
   overflow hidden
   visibility hidden
 
-  & > .slider-cnt
+  > .slider-cnt
     position relative
     overflow hidden
 
-    & > .slider-item
+    > .slider-item
       position relative
       float left
       width 100%
@@ -200,7 +200,7 @@ textarea
   backface-visibility hidden
   z-index 1 // Fix of Webkit flickering
 
-  & > .swiper-wrapper
+  > .swiper-wrapper
     // box-sizing content-box
     position relative
     width 100%
@@ -209,7 +209,7 @@ textarea
     transform translate3d(0px,0,0)
     transition-timing-function ease
 
-    & > .swiper-slide
+    > .swiper-slide
       // box-sizing content-box
       float left
 
@@ -223,6 +223,177 @@ textarea
 
   &.swiper-wp8-vertical
     -ms-touch-action pan-x
+
+html.mobilebone
+  &
+  body
+  body > .page
+    iheight 100%
+    width 100%
+    overflow hidden
+
+  body
+    margin 0
+    user-select none
+    -ms-touch-action none
+
+    a,
+    img
+      -webkit-touch-callout none
+
+    > .page
+      position absolute
+      left 0
+      top 0
+      animation .35s ease-in-out
+
+      &.out
+        display none
+        transform translateX(-100%)
+
+      &.in
+        transform translateX(0)
+
+    // mask layer when ajax sending...
+    > .mask
+      position absolute
+      z-index 9
+      height 100%
+      width 100%
+      background-color rgba(255, 255, 255, .35)
+
+      // more info http://www.zhangxinxu.com/wordpress/?p=3357
+      > .loading
+        position absolute
+        top 0
+        right 0
+        bottom 0
+        left 0
+        margin auto
+        width 3px
+        height 3px
+        border-radius 100%
+        box-shadow 0 -10px 0 1px currentColor, /* top, 1px expand */ 10px 0px currentColor, /* right */ 0 10px currentColor, /* bottom */ -10px 0 currentColor, /* left */ -7px -7px 0 .5px currentColor, /* left-top, 0.5px expand */ 7px -7px 0 1.5px currentColor, /* right-top, 1.5px expand */ 7px 7px currentColor, /* right-bottom */ -7px 7px currentColor /* left-bottom */
+        animation loading 1s step-start infinite /* center */
+
+    // Default animation - slide, you can visit '/test/transition/aniamte.css' to get more styles of animation
+    > .slide
+      &.in
+      animation-name slideinfromright
+
+      &.out
+        animation-name slideouttoleft
+
+      &.reverse.out
+        animation-name slideouttoright
+
+      &.reverse.in
+        animation-name slideinfromleft
+
+@-webkit-keyframes slideinfromright
+  from
+    -webkit-transform translateX(100%)
+  to
+    -webkit-transform translateX(0)
+
+@keyframes slideinfromright
+  from
+    transform translateX(100%)
+  to
+    transform translateX(0)
+
+@-webkit-keyframes slideinfromleft
+  from
+    -webkit-transform translateX(-100%)
+  to
+    -webkit-transform translateX(0)
+
+@keyframes slideinfromleft
+  from
+    transform translateX(-100%)
+  to
+    transform translateX(0)
+
+@-webkit-keyframes slideouttoleft
+  from
+    -webkit-transform translateX(0)
+  to
+    -webkit-transform translateX(-100%)
+
+@keyframes slideouttoleft
+  from
+    transform translateX(0)
+  to
+    transform translateX(-100%)
+
+@-webkit-keyframes slideouttoright
+  from
+    -webkit-transform translateX(0)
+  to
+    -webkit-transform translateX(100%)
+
+@keyframes slideouttoright
+  from
+    transform translateX(0)
+  to
+    transform translateX(100%)
+
+// chrysanthemum loading effect
+@-webkit-keyframes loading
+  0%
+    -webkit-transform rotate(0deg)
+
+  12%
+    -webkit-transform rotate(45deg)
+
+  25%
+    -webkit-transform rotate(90deg)
+
+  37%
+    -webkit-transform rotate(135deg)
+
+  50%
+    -webkit-transform rotate(180deg)
+
+  63%
+    -webkit-transform rotate(225deg)
+
+  75%
+    -webkit-transform rotate(270deg)
+
+  87%
+    -webkit-transform rotate(315deg)
+
+  90%
+    -webkit-transform rotate(360deg)
+
+@keyframes loading
+  0%
+    transform rotate(0deg)
+
+  12%
+    transform rotate(45deg)
+
+  25%
+    transform rotate(90deg)
+
+  37%
+    transform rotate(135deg)
+
+  50%
+    transform rotate(180deg)
+
+  63%
+    transform rotate(225deg)
+
+  75%
+    transform rotate(270deg)
+
+  87%
+    transform rotate(315deg)
+
+  90%
+    transform rotate(360deg)
 
 /* TPL
 ========================================================================== */
@@ -239,38 +410,38 @@ header
   color #fff
   background #333
 
-  & > nav
+  > nav
     margin 0 auto
     width 960px
 
-    & > h1
+    > h1
       float left
       padding 0 10px
       line-height 32px
       font-size 18px
       font-weight normal
 
-    & > ul
+    > ul
       float right
       font-weight bold
       color #fff
 
-      & > li
+      > li
         float left
         padding 0 20px
         height 32px
         line-height 32px
         text-shadow 0 0 5px rgba(255, 255, 255, 0.3)
 
-        & > a
+        > a
           display block
           height 32px
           line-height 32px
           color #888
           text-shadow none
 
-        & > a:hover,
-        & > a:focus
+        > a:hover,
+        > a:focus
           color #ddd
 
 // Footer
@@ -284,7 +455,7 @@ footer
 
 // Main
 main
-  & > h1
+  > h1
     margin 15px 0 30px
     text-align center
     font-size 28px
@@ -292,10 +463,10 @@ main
     -webkit-box-reflect below -0.5555em -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.3, transparent), color-stop(0.7, rgba(255, 255, 255, 0.1)), to(transparent))
     -moz-box-reflect below -0.5555em -moz-linear-gradient(top, transparent 0%, transparent 30%, rgba(255, 255, 255, 0.3) 100%)
 
-  & > h2
+  > h2
     display none
 
-  & > summary
+  > summary
     margin 15px auto
     padding 10px
     width tests-width
@@ -303,7 +474,7 @@ main
     border-radius 2px
     background #ececec
 
-    & > strong
+    > strong
       color red
 
 // Swiper
@@ -311,15 +482,15 @@ main
   height 200px
   // outline 1px solid #0f0
 
-  & .swiper-slide-active
+  .swiper-slide-active
     /* Specific active slide styling */
 
-  & .swiper-slide-visible
+  .swiper-slide-visible
     /* Specific visible slide styling */
     text-align left
 
   // tests
-  & .tests
+  .tests
     position relative
     margin 0 auto
     // padding 1em 0
@@ -331,7 +502,7 @@ main
     // font-size 1.4rem
     // background #fff
 
-    & > label
+    > label
       position relative
       display block
       margin-bottom 2em
@@ -367,7 +538,7 @@ main
         background #F9F9E6
 
   // Nav
-  & > .swiper-nav
+  > .swiper-nav
     // display none
     position absolute
     bottom 20px
@@ -375,7 +546,7 @@ main
     width 100%
     text-align center
 
-    & > a
+    > a
       display inline-block
       margin 0 30px
       height 28px
@@ -387,14 +558,14 @@ main
       text-decoration none
 
   // Pagination
-  & .swiper-pagination
+  .swiper-pagination
     /* Stylize pagination */
 
-  & .swiper-pagination-switch
+  .swiper-pagination-switch
     /* Stylize pagination button */
 
-  & .swiper-active-switch
+  .swiper-active-switch
     /* Specific active button style */
 
-  & .swiper-visible-switch
+  .swiper-visible-switch
     /* Specific visible button style */
