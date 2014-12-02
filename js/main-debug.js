@@ -29,8 +29,21 @@
     var $swiper = $('#swiper-responsive');
     var $counter = $('#js-counter');
 
+    // Mobilebone
+    Mobilebone.callback = function(pagein, pageout) {
+      if (pagein.id === 'page-tests') {
+        $swiper.data('swiper').reInit();
+      }
+
+      if (pagein.id === 'page-home') {
+        $html.addClass('home');
+      } else {
+        $html.removeClass('home');
+      }
+    };
+
     // 初始化 Swiper
-    $swiper[0].innerHTML = template('tests', tests);;
+    $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
       // pagination: '.pagination',

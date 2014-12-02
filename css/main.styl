@@ -34,6 +34,8 @@ body
   font-size 1.2rem
   line-height 1.4
   color #333
+  // user-select none
+  // -ms-touch-action none
 
 // TODO
 h1,
@@ -52,6 +54,10 @@ ol
   list-style none
 
 // End TODO
+
+// a
+// img
+//   -webkit-touch-callout none
 
 a
   color inherit
@@ -228,18 +234,9 @@ html.mobilebone
   &
   body
   body > .page
-    iheight 100%
+    height 100%
     width 100%
     overflow hidden
-
-  body
-    margin 0
-    user-select none
-    -ms-touch-action none
-
-    a,
-    img
-      -webkit-touch-callout none
 
     > .page
       position absolute
@@ -279,7 +276,7 @@ html.mobilebone
     // Default animation - slide, you can visit '/test/transition/aniamte.css' to get more styles of animation
     > .slide
       &.in
-      animation-name slideinfromright
+        animation-name slideinfromright
 
       &.out
         animation-name slideouttoleft
@@ -401,8 +398,30 @@ html.mobilebone
 
 /* Layout
 ========================================================================== */
+// Common
+html.mobilebone body
+  > .header
+  > .footer
+  > .content
+    position absolute
+    left 0
+    right 0
+
+  > .footer
+    z-index 1
+    bottom 0
+    height 30px
+    line-height 30px
+
+  > .content
+    top 0
+    bottom 30px
+    overflow auto
+    -webkit-overflow-scrolling touch
+    background #ccc
+
 // Header
-header
+#header
   position relative
   z-index 1
   min-height 32px
@@ -445,16 +464,51 @@ header
           color #ddd
 
 // Footer
-footer
+#footer
   // display none
   // position absolute
   // bottom 0
   // left 0
   // width 100%
   text-align center
+  transition 1s
 
-// Main
-main
+// Pages
+#page-home
+  height 100%
+  background url(../img/bg-home.jpg) 50% 50% no-repeat
+  background-size cover
+
+  > .content
+    height 100%
+    padding 6% 0 0
+    text-align center
+    color #fff
+    background rgba(0, 0, 0, .7)
+    vertical-align middle
+
+    > h1
+      font-size 30px
+      -webkit-box-reflect below -0.5555em -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.3, transparent), color-stop(0.7, rgba(255, 255, 255, 0.1)), to(transparent))
+      -moz-box-reflect below -0.5555em -moz-linear-gradient(top, transparent 0%, transparent 30%, rgba(255, 255, 255, 0.3) 100%)
+
+    > p
+      width 60%
+      margin 20px auto
+      font-size 1.6rem
+
+    > a
+      display inline-block
+      margin-top 2rem
+      padding .6em 3em
+      border 1px #fff solid
+      font-size 1.3em
+      text-decoration none
+
+html.home #footer
+  color #fff
+
+#page-tests > .content
   > h1
     margin 15px 0 30px
     text-align center
@@ -481,6 +535,9 @@ main
 #swiper-responsive
   height 200px
   // outline 1px solid #0f0
+
+  .swiper-slide
+    width 100vw
 
   .swiper-slide-active
     /* Specific active slide styling */
