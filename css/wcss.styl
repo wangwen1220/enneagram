@@ -17,7 +17,7 @@
 nib-display = display
 display()
   if arguments is box
-    display: vendor-value(arguments)
+    display vendor-value(arguments)
   else
     nib-display arguments
 
@@ -79,8 +79,8 @@ hgroup
 menu
 nav
 section
-  padding 0
   margin 0
+  padding 0
 
 // 修正IE 8/9 中未定义的块级元素
 article
@@ -108,7 +108,7 @@ video
   vertical-align baseline // 2
   if support-for-ie
     *display inline
-    *zoom: 1
+    *zoom 1
 
 // 防止现代浏览器将没有 controls 属性的的‘audio’元素显示出来。
 // 移除 iOS 5 设备中多余的高度。
@@ -141,16 +141,15 @@ strong
   font-weight bold
 
 // Address styling not present in Safari and Chrome.
-dfn
-  font-style italic
+// dfn
+//   font-style italic
 
 // 去掉列表前的标识，li 会继承
 ol
 ul
   list-style none
 
-
-// 来自yahoo，让标题都自定义，适应多个系统应用
+// 来自 yahoo，让标题都自定义，适应多个系统应用
 h1
 h2
 h3
@@ -162,8 +161,8 @@ h6
 
 // Address styling not present in IE 8/9.
 mark
-  background #ff0
   color #000
+  background #ff0
 
 // Address inconsistent and variable font size in all browsers.
 small
@@ -185,6 +184,7 @@ sub
 
 // Remove border when inside `a` element in IE 8/9/10.
 fieldset
+legend
 img
   border 0
 
@@ -193,8 +193,8 @@ svg:not(:root)
   overflow hidden
 
 // Address margin not present in IE 8/9 and Safari.
-figure
-  margin 1em 40px
+// figure
+//   margin 1em 40px
 
 // Address differences between Firefox and other browsers.
 hr
@@ -308,16 +308,16 @@ input[type='search']::-webkit-search-decoration
   appearance none
 
 // Define consistent border, margin, and padding.
-fieldset
-  border 1px solid #c0c0c0
-  margin 0 2px
-  padding 0.35em 0.625em 0.75em
+// fieldset
+//   border 1px solid #c0c0c0
+//   margin 0 2px
+//   padding 0.35em 0.625em 0.75em
 
 // 1. Correct `color` not being inherited in IE 8/9/10/11.
 // 2. Remove padding so people aren't caught out if they zero out fieldsets.
-legend
-  border 0 // 1
-  padding 0 // 2
+// legend
+  // border 0 // 1
+  // padding 0 // 2
 
 // Remove default vertical scrollbar in IE 8/9/10/11.
 textarea
@@ -333,9 +333,9 @@ table
   border-collapse collapse
   border-spacing 0
 
-td
-th
-  padding 0
+// td
+// th
+//   padding 0
 
 // IE bug fixed: th 不继承 text-align
 // 对齐是排版最重要的因素，别让什么都居中
@@ -389,13 +389,23 @@ if support-for-ie
 .fn-text-overflow
   overflow ellipsis
 
-// 简单的渐变
+// 简单渐变
 .fn-linear
   background linear-gradient(top, #fcfcfc, #f1f1f1)
 
-// 浅色的渐变
+// 浅色渐变
 .fn-linear-light
   background linear-gradient(top, #fcfcfc, #f9f9f9)
+
+if support-for-ie
+  @css {
+    .fn-linear {
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f1f1f1');
+    }
+    .fn-linear-light {
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
+    }
+  }
 
 // 人民币符号
 .fn-rmb

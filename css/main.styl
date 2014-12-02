@@ -4,7 +4,6 @@ support-for-ie = false
 
 @import 'nib'
 @import 'wcss'
-@import 'swiper.css'
 
 /* Var
 ============================================================================= */
@@ -13,12 +12,12 @@ tests-width = 580px
 
 /* Reset
 ============================================================================= */
-*,
-*:before,
+*
+*:before
 *:after
   box-sizing border-box
 
-::-moz-selection,
+::-moz-selection
 ::selection
   text-shadow none
   color #fff
@@ -27,8 +26,9 @@ tests-width = 580px
 html
   height 100%
   font-size 62.5%
-  // background #EFEFEF url(../img/bg.png) fixed;
+  // background #EFEFEF url(../img/bg.png) fixed
   background #f7f7f7
+
 body
   font-family fonts
   font-size 1.2rem
@@ -36,24 +36,6 @@ body
   color #333
   // user-select none
   // -ms-touch-action none
-
-// TODO
-h1,
-h1,
-h3,
-h4,
-h5,
-h6
-  margin 0
-  font: inherit;
-
-ul,
-ol
-  margin 0
-  padding 0
-  list-style none
-
-// End TODO
 
 // a
 // img
@@ -75,7 +57,7 @@ a:focus
 img
   vertical-align middle
 
-hr,
+hr
 .hr
   clear both
   margin 10px 0
@@ -91,7 +73,7 @@ textarea
 
 /* Helper
 ========================================================================== */
-/* 排版 */
+// 排版
 .highlight
   color red !important
 
@@ -122,7 +104,7 @@ textarea
 .fn-capitalize
   text-transform capitalize !important
 
-.fn-dn,
+.fn-dn
 .js-hide
   display none !important
 
@@ -157,7 +139,18 @@ textarea
 .mb0
   margin-bottom 0 !important
 
-/* AD */
+// 遮罩层
+.fn-mask
+  display none
+  fixed top left bottom right
+  z-index 111
+  background rgba(0, 0, 0, .4)
+
+// js placeholder
+.placeholder
+  color #A6A6A6 !important
+
+// AD
 .ad
   margin 10px auto
   overflow hidden
@@ -169,17 +162,6 @@ textarea
 
 .ad img
   width 100%
-
-/* 遮罩层 */
-.fn-mask
-  display none
-  fixed top left bottom right
-  z-index 111
-  background rgba(0,0,0,.4)
-
-/* js placeholder style */
-.placeholder
-  color #A6A6A6 !important
 
 /* Plugin
 ========================================================================== */
@@ -287,11 +269,11 @@ html.mobilebone
       &.reverse.in
         animation-name slideinfromleft
 
-@-webkit-keyframes slideinfromright
+@keyframes slideinfromright
   from
-    -webkit-transform translateX(100%)
+    transform translateX(100%)
   to
-    -webkit-transform translateX(0)
+    transform translateX(0)
 
 @keyframes slideinfromright
   from
@@ -299,11 +281,11 @@ html.mobilebone
   to
     transform translateX(0)
 
-@-webkit-keyframes slideinfromleft
+@keyframes slideinfromleft
   from
-    -webkit-transform translateX(-100%)
+    transform translateX(-100%)
   to
-    -webkit-transform translateX(0)
+    transform translateX(0)
 
 @keyframes slideinfromleft
   from
@@ -311,11 +293,11 @@ html.mobilebone
   to
     transform translateX(0)
 
-@-webkit-keyframes slideouttoleft
+@keyframes slideouttoleft
   from
-    -webkit-transform translateX(0)
+    transform translateX(0)
   to
-    -webkit-transform translateX(-100%)
+    transform translateX(-100%)
 
 @keyframes slideouttoleft
   from
@@ -323,11 +305,11 @@ html.mobilebone
   to
     transform translateX(-100%)
 
-@-webkit-keyframes slideouttoright
+@keyframes slideouttoright
   from
-    -webkit-transform translateX(0)
+    transform translateX(0)
   to
-    -webkit-transform translateX(100%)
+    transform translateX(100%)
 
 @keyframes slideouttoright
   from
@@ -336,59 +318,43 @@ html.mobilebone
     transform translateX(100%)
 
 // chrysanthemum loading effect
-@-webkit-keyframes loading
+@keyframes loading
   0%
-    -webkit-transform rotate(0deg)
-
+    transform rotate(0deg)
   12%
-    -webkit-transform rotate(45deg)
-
+    transform rotate(45deg)
   25%
-    -webkit-transform rotate(90deg)
-
+    transform rotate(90deg)
   37%
-    -webkit-transform rotate(135deg)
-
+    transform rotate(135deg)
   50%
-    -webkit-transform rotate(180deg)
-
+    transform rotate(180deg)
   63%
-    -webkit-transform rotate(225deg)
-
+    transform rotate(225deg)
   75%
-    -webkit-transform rotate(270deg)
-
+    transform rotate(270deg)
   87%
-    -webkit-transform rotate(315deg)
-
+    transform rotate(315deg)
   90%
-    -webkit-transform rotate(360deg)
+    transform rotate(360deg)
 
 @keyframes loading
   0%
     transform rotate(0deg)
-
   12%
     transform rotate(45deg)
-
   25%
     transform rotate(90deg)
-
   37%
     transform rotate(135deg)
-
   50%
     transform rotate(180deg)
-
   63%
     transform rotate(225deg)
-
   75%
     transform rotate(270deg)
-
   87%
     transform rotate(315deg)
-
   90%
     transform rotate(360deg)
 
@@ -459,7 +425,7 @@ html.mobilebone body
           color #888
           text-shadow none
 
-        > a:hover,
+        > a:hover
         > a:focus
           color #ddd
 
@@ -473,7 +439,7 @@ html.mobilebone body
   text-align center
   transition 1s
 
-// Pages
+// Home Page
 #page-home
   height 100%
   background url(../img/bg-home.jpg) 50% 50% no-repeat
@@ -508,14 +474,14 @@ html.mobilebone body
 html.home #footer
   color #fff
 
+// Tests Page
 #page-tests > .content
   > h1
+    @extend #page-home > .content > h1
     margin 15px 0 30px
     text-align center
     font-size 28px
     color #000
-    -webkit-box-reflect below -0.5555em -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.3, transparent), color-stop(0.7, rgba(255, 255, 255, 0.1)), to(transparent))
-    -moz-box-reflect below -0.5555em -moz-linear-gradient(top, transparent 0%, transparent 30%, rgba(255, 255, 255, 0.3) 100%)
 
   > h2
     display none
@@ -530,6 +496,29 @@ html.home #footer
 
     > strong
       color red
+
+// Chart Page
+#page-chart > .content
+  text-align center
+
+  > h1
+    @extend #page-home > .content > h1
+    margin 30px 0
+    font-size 28px
+    color #000
+
+  > canvas
+    display block
+    margin 0 auto
+
+  > a
+    display inline-block
+    margin-top 3rem
+    padding .6em 3em
+    border 1px #999 solid
+    color #000
+    font-size 1.3em
+    text-decoration none
 
 // Swiper
 #swiper-responsive
@@ -569,7 +558,7 @@ html.home #footer
       background #fff
       cursor pointer
 
-      &:before,
+      &:before
       &:after
         content ''
         position absolute

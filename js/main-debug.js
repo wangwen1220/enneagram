@@ -43,6 +43,7 @@
     };
 
     // 初始化 Swiper
+    tests.list = tests.list.splice(-5);
     $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
@@ -75,7 +76,38 @@
       var swiper = $swiper.data('swiper');
 
       if (swiper.activeIndex === swiper.slides.length - 1) {
-        console.log('submit');
+        console.log($swiper.find(':radio').serializeArray());
+        var pieData = [{
+          value: 300,
+          color: '#F7464A',
+          highlight: '#FF5A5E',
+          label: 'Red'
+        }, {
+          value: 50,
+          color: '#46BFBD',
+          highlight: '#5AD3D1',
+          label: 'Green'
+        }, {
+          value: 100,
+          color: '#FDB45C',
+          highlight: '#FFC870',
+          label: 'Yellow'
+        }, {
+          value: 40,
+          color: '#949FB1',
+          highlight: '#A8B3C5',
+          label: 'Grey'
+        }, {
+          value: 120,
+          color: '#4D5360',
+          highlight: '#616774',
+          label: 'Dark Grey'
+        }];
+
+        window.location.hash = '#&page-chart';
+        var ctx = document.getElementById('chart').getContext('2d');
+        new Chart(ctx).Pie(pieData);
+
         return;
       }
 
@@ -88,6 +120,13 @@
       // setTimeout(function() {
       //   $swiper.data('swiper').swipeNext();
       // }, 300);
+    });
+
+    // 重置测试
+    $('#page-chart').on('click', '.content > a', function() {
+      $swiper.data('swiper').swipeReset();
+      $swiper.find(':radio').prop('checked', false);
+      // window.location.reload();
     });
   });
 })(jQuery);
