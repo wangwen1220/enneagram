@@ -76,32 +76,53 @@
       var swiper = $swiper.data('swiper');
 
       if (swiper.activeIndex === swiper.slides.length - 1) {
-        console.log($swiper.find(':radio').serializeArray());
+        var $checked = $swiper.find('input:checked');
+
         var pieData = [{
-          value: 300,
+          value: $checked.filter('[value=A]').length,
           color: '#F7464A',
           highlight: '#FF5A5E',
-          label: 'Red'
+          label: 'A'
         }, {
-          value: 50,
+          value: $checked.filter('[value=B]').length,
           color: '#46BFBD',
           highlight: '#5AD3D1',
-          label: 'Green'
+          label: 'B'
         }, {
-          value: 100,
+          value:$checked.filter('[value=C]').length,
           color: '#FDB45C',
           highlight: '#FFC870',
-          label: 'Yellow'
+          label: 'C'
         }, {
-          value: 40,
+          value: $checked.filter('[value=D]').length,
           color: '#949FB1',
           highlight: '#A8B3C5',
-          label: 'Grey'
+          label: 'D'
         }, {
-          value: 120,
+          value: $checked.filter('[value=E]').length,
           color: '#4D5360',
           highlight: '#616774',
-          label: 'Dark Grey'
+          label: 'E'
+        }, {
+          value: $checked.filter('[value=F]').length,
+          color: '#97B552',
+          highlight: '#97B552',
+          label: 'F'
+        }, {
+          value: $checked.filter('[value=G]').length,
+          color: '#4D5360',
+          highlight: '#616774',
+          label: 'G'
+        }, {
+          value: $checked.filter('[value=H]').length,
+          color: '#E5CF0D',
+          highlight: '#E5CF0D',
+          label: 'H'
+        }, {
+          value: $checked.filter('[value=I]').length,
+          color: '#FFB980',
+          highlight: '#FFB980',
+          label: 'I'
         }];
 
         window.location.hash = '#&page-chart';

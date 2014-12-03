@@ -188,6 +188,10 @@ legend
 img
   border 0
 
+// Remove the gap between images and the bottom of their containers
+img
+  vertical-align middle
+
 // Correct overflow not hidden in IE 9/10/11.
 svg:not(:root)
   overflow hidden
@@ -320,8 +324,10 @@ input[type='search']::-webkit-search-decoration
   // padding 0 // 2
 
 // Remove default vertical scrollbar in IE 8/9/10/11.
+// Allow only vertical resizing of textareas.
 textarea
   overflow auto
+  resize vertical
 
 // Don't inherit the `font-weight` (applied by a rule above).
 // NOTE the default cannot safely be changed in Chrome and Safari on OS X.

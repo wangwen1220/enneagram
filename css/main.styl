@@ -54,8 +54,53 @@ a:focus
   outline 5px auto -webkit-focus-ring-color
   outline-offset -2px
 
-img
-  vertical-align middle
+mark
+  color #333
+  background #ffa
+
+// A hack for HTML5 contenteditable attribute on mobile
+textarea[contenteditable]
+  appearance none
+
+/* Helper
+========================================================================== */
+// Helper from HTML5 Boilerplate
+.nocallout
+  -webkit-touch-callout none
+
+.pressed
+  background-color rgba(0, 0, 0, .7)
+
+.gifhidden
+  position absolute
+  left -100%
+
+.invisible
+  visibility hidden
+
+// 排版
+.img-responsive
+  display block
+  height auto
+  max-width 100%
+
+.img-rounded
+  border-radius 6px
+
+.img-thumbnail
+  display inline-block
+  height auto
+  max-width 100%
+  padding 4px
+  line-height 1.42857143
+  background-color #fff
+  border 1px solid #ddd
+  border-radius 4px
+  -webkit-transition all 0.2s ease-in-out
+  transition all 0.2s ease-in-out
+
+.img-circle
+  border-radius 50%
 
 hr
 .hr
@@ -64,16 +109,6 @@ hr
   border 0
   border-top 1px solid #eee
 
-mark
-  color #333
-  background #ffa
-
-textarea
-  resize vertical
-
-/* Helper
-========================================================================== */
-// 排版
 .highlight
   color red !important
 
@@ -157,11 +192,11 @@ textarea
   text-align center
   background #f8f8f8
 
-.ad a
-  display block
+  > a
+    display block
 
-.ad img
-  width 100%
+    > img
+      width 100%
 
 /* Plugin
 ========================================================================== */
