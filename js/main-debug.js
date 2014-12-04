@@ -33,6 +33,8 @@
     Mobilebone.callback = function(pagein, pageout) {
       if (pagein.id === 'page-tests') {
         $swiper.data('swiper').reInit();
+        // $swiper.data('swiper').swipeTo(0);
+        // $swiper.data('swiper').swipeReset();
       }
 
       if (pagein.id === 'page-home') {
@@ -43,12 +45,14 @@
     };
 
     // 初始化 Swiper
-    tests.list = tests.list.splice(-5);
+    tests.list = tests.list.splice(-10);
     $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
       // pagination: '.pagination',
       // paginationClickable: true,
+      // noSwiping: true,
+      simulateTouch: false,
       onFirstInit: function(swiper) {
         var total = swiper.slides.length;
         var index = swiper.activeIndex + 1;
@@ -110,8 +114,8 @@
           label: 'F'
         }, {
           value: $checked.filter('[value=G]').length,
-          color: '#9BCA63',
-          highlight: '#B9D991',
+          color: '#28A428',
+          highlight: '#68BF68',
           label: 'G'
         }, {
           value: $checked.filter('[value=H]').length,
@@ -126,16 +130,19 @@
         }];
 
         window.location.hash = '#&page-chart';
-        var ctx = document.getElementById('chart').getContext('2d');
+        var ctx = $id('chart').getContext('2d');
+        // var ctx = $('<canvas id="chart" width="300" height="300"></canvas>').appendTo('#page-chart').getContext('2d');
         new Chart(ctx).Pie(pieData);
 
         return;
       }
 
       $this.parent().animate({'right': '-50px'}, 500, function() {
-        $slide.animate({'right': 'auto'}, 0, function() {
-          swiper.swipeNext();
-        });
+        $(this).css('right', 'auto');
+        swiper.swipeNext();
+        // $(this).animate({'right': 0}, 0, function() {
+        //   swiper.swipeNext();
+        // });
       });
 
       // setTimeout(function() {
@@ -145,7 +152,6 @@
 
     // 重置测试
     $('#page-chart').on('click', '.content > a', function() {
-      $swiper.data('swiper').swipeReset();
       $swiper.find(':radio').prop('checked', false);
       // window.location.reload();
     });
