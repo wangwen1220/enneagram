@@ -80,48 +80,48 @@
 
         var pieData = [{
           value: $checked.filter('[value=A]').length,
-          color: '#F7464A',
-          highlight: '#FF5A5E',
+          color: '#C1232B',
+          highlight: '#D3656A',
           label: 'A'
         }, {
           value: $checked.filter('[value=B]').length,
-          color: '#46BFBD',
-          highlight: '#5AD3D1',
+          color: '#B5C334',
+          highlight: '#CBD570',
           label: 'B'
         }, {
           value:$checked.filter('[value=C]').length,
-          color: '#FDB45C',
-          highlight: '#FFC870',
+          color: '#FCCE10',
+          highlight: '#FCDC57',
           label: 'C'
         }, {
           value: $checked.filter('[value=D]').length,
-          color: '#949FB1',
-          highlight: '#A8B3C5',
+          color: '#E87C25',
+          highlight: '#EEA366',
           label: 'D'
         }, {
           value: $checked.filter('[value=E]').length,
-          color: '#4D5360',
-          highlight: '#616774',
+          color: '#27727B',
+          highlight: '#679CA2',
           label: 'E'
         }, {
           value: $checked.filter('[value=F]').length,
-          color: '#97B552',
-          highlight: '#97B552',
+          color: '#FE8463',
+          highlight: '#FEA891',
           label: 'F'
         }, {
           value: $checked.filter('[value=G]').length,
-          color: '#4D5360',
-          highlight: '#616774',
+          color: '#9BCA63',
+          highlight: '#B9D991',
           label: 'G'
         }, {
           value: $checked.filter('[value=H]').length,
-          color: '#E5CF0D',
-          highlight: '#E5CF0D',
+          color: '#F3A43B',
+          highlight: '#F6BF75',
           label: 'H'
         }, {
           value: $checked.filter('[value=I]').length,
-          color: '#FFB980',
-          highlight: '#FFB980',
+          color: '#60C0DD',
+          highlight: '#8FD2E7',
           label: 'I'
         }];
 
