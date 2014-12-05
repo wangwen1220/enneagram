@@ -33,8 +33,7 @@
     Mobilebone.callback = function(pagein, pageout) {
       if (pagein.id === 'page-tests') {
         $swiper.data('swiper').reInit();
-        // $swiper.data('swiper').swipeTo(0);
-        // $swiper.data('swiper').swipeReset();
+        $swiper.data('swiper').swipeTo(0);
       }
 
       if (pagein.id === 'page-home') {
@@ -45,7 +44,7 @@
     };
 
     // 初始化 Swiper
-    tests.list = tests.list.splice(-10);
+    tests.list = tests.list.splice(-3);
     $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
@@ -86,52 +85,64 @@
           value: $checked.filter('[value=A]').length,
           color: '#C1232B',
           highlight: '#D3656A',
-          label: 'A'
+          // label: 'A'
+          label: '9号'
         }, {
           value: $checked.filter('[value=B]').length,
           color: '#B5C334',
           highlight: '#CBD570',
-          label: 'B'
+          // label: 'B'
+          label: '6号'
         }, {
           value:$checked.filter('[value=C]').length,
           color: '#FCCE10',
           highlight: '#FCDC57',
-          label: 'C'
+          // label: 'C'
+          label: '3号'
         }, {
           value: $checked.filter('[value=D]').length,
           color: '#E87C25',
           highlight: '#EEA366',
-          label: 'D'
+          // label: 'D'
+          label: '1号'
         }, {
           value: $checked.filter('[value=E]').length,
           color: '#27727B',
           highlight: '#679CA2',
-          label: 'E'
+          // label: 'E'
+          label: '4号'
         }, {
           value: $checked.filter('[value=F]').length,
           color: '#FE8463',
           highlight: '#FEA891',
-          label: 'F'
+          // label: 'F'
+          label: '2号'
         }, {
           value: $checked.filter('[value=G]').length,
           color: '#28A428',
           highlight: '#68BF68',
-          label: 'G'
+          // label: 'G'
+          label: '8号'
         }, {
           value: $checked.filter('[value=H]').length,
           color: '#F3A43B',
           highlight: '#F6BF75',
-          label: 'H'
+          // label: 'H'
+          label: '5号'
         }, {
           value: $checked.filter('[value=I]').length,
           color: '#60C0DD',
           highlight: '#8FD2E7',
-          label: 'I'
+          // label: 'I'
+          label: '7号'
         }];
 
         window.location.hash = '#&page-chart';
-        var ctx = $id('chart').getContext('2d');
-        // var ctx = $('<canvas id="chart" width="300" height="300"></canvas>').appendTo('#page-chart').getContext('2d');
+        var ctx = $('<canvas width="300" height="300"/>').appendTo($('#chart').empty())[0].getContext('2d');
+        // var ctx = $id('chart').getContext('2d');
+        // var chart = $id('chart');
+        // var ctx = chart.getContext('2d');
+        // ctx.clearRect(0, 0, chart.width, chart.height)
         new Chart(ctx).Pie(pieData);
 
         return;
