@@ -7,14 +7,14 @@
   "window": {
     "title": "九型人格测试",
     "icon": "img/app.ico",
-    "frame": false,
+    "frame": true,
     "toolbar": false,
     "resizable": false,
     "always-on-top": false,
     "fullscreen": false,
     "position": "center",
-    "width": 600,
-    "height": 500
+    "width": 700,
+    "height": 520
   },
   "dependencies": {
     "mysql": "2.0.1",
