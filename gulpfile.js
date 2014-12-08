@@ -12,9 +12,12 @@ var coffee = require('gulp-coffee');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var copy = require('gulp-copy');
+var zip = require('gulp-zip');
 // var jshint = require('gulp-jshint');
 // var concat = require('gulp-concat');
-var clean = require('gulp-clean');
+// var clean = require('gulp-clean');
+// var clean = require('gulp-rimraf');
+var del = require('del');
 // var imagemin = require('gulp-imagemin');
 // var changed = require('gulp-changed');
 var watch = require('gulp-watch');
@@ -23,8 +26,9 @@ var watch = require('gulp-watch');
 var app = {
   src: './**',
   destfile: [
-    './package.json',
     './*.htm?',
+    './package.json',
+    './app.png',
     './css/**',
     './js/**',
     './img/**',
@@ -35,6 +39,7 @@ var app = {
     '!./**/*-debug.*',
     '!./**/*-bak.*'
   ],
+  zip: ['./dist/**'],
   dest: 'dist',
   watch: ['./**/*.php', './**/*.htm', './**/*.html', './**/*.css', './**/*.js', './img/**/*'],
 
@@ -65,15 +70,23 @@ var app = {
 };
 
 // 清空目录
-gulp.task('clean', function() {
-  return gulp.src(app.dest, {read: false})
-    .pipe(clean());
+gulp.task('clean', function(cb) {
+  // return gulp.src(app.dest, {read: false})
+  //   .pipe(clean());
+  del(app.dest + '/**', cb);
 });
 
 // 打包文件
 gulp.task('copy', function() {
   return gulp.src(app.destfile)
     .pipe(copy(app.dest));
+});
+
+// 压缩文件
+gulp.task('zip', function() {
+  gulp.src(app.zip)
+    .pipe(zip('app.nw'))
+    .pipe(gulp.dest(app.dest));
 });
 
 // 创建 stylus 任务
@@ -144,4 +157,4 @@ gulp.task('watch', function() {
 gulp.task('default', ['stylus', 'jsmin', 'watch']);
 
 // 打包文件到目录
-gulp.task('dist', ['clean', 'copy']);
+gulp.task('build', ['clean', 'copy', 'zip']);

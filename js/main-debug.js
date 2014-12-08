@@ -44,7 +44,7 @@
     };
 
     // 初始化 Swiper
-    tests.list = tests.list.splice(-3);
+    // tests.list = tests.list.splice(-3);
     $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
@@ -82,35 +82,11 @@
         var $checked = $swiper.find('input:checked');
 
         var pieData = [{
-          value: $checked.filter('[value=A]').length,
-          color: '#C1232B',
-          highlight: '#D3656A',
-          // label: 'A'
-          label: '9号'
-        }, {
-          value: $checked.filter('[value=B]').length,
-          color: '#B5C334',
-          highlight: '#CBD570',
-          // label: 'B'
-          label: '6号'
-        }, {
-          value:$checked.filter('[value=C]').length,
-          color: '#FCCE10',
-          highlight: '#FCDC57',
-          // label: 'C'
-          label: '3号'
-        }, {
           value: $checked.filter('[value=D]').length,
           color: '#E87C25',
           highlight: '#EEA366',
           // label: 'D'
           label: '1号'
-        }, {
-          value: $checked.filter('[value=E]').length,
-          color: '#27727B',
-          highlight: '#679CA2',
-          // label: 'E'
-          label: '4号'
         }, {
           value: $checked.filter('[value=F]').length,
           color: '#FE8463',
@@ -118,11 +94,17 @@
           // label: 'F'
           label: '2号'
         }, {
-          value: $checked.filter('[value=G]').length,
-          color: '#28A428',
-          highlight: '#68BF68',
-          // label: 'G'
-          label: '8号'
+          value:$checked.filter('[value=C]').length,
+          color: '#FCCE10',
+          highlight: '#FCDC57',
+          // label: 'C'
+          label: '3号'
+        }, {
+          value: $checked.filter('[value=E]').length,
+          color: '#27727B',
+          highlight: '#679CA2',
+          // label: 'E'
+          label: '4号'
         }, {
           value: $checked.filter('[value=H]').length,
           color: '#F3A43B',
@@ -130,11 +112,29 @@
           // label: 'H'
           label: '5号'
         }, {
+          value: $checked.filter('[value=B]').length,
+          color: '#B5C334',
+          highlight: '#CBD570',
+          // label: 'B'
+          label: '6号'
+        }, {
           value: $checked.filter('[value=I]').length,
           color: '#60C0DD',
           highlight: '#8FD2E7',
           // label: 'I'
           label: '7号'
+        }, {
+          value: $checked.filter('[value=G]').length,
+          color: '#28A428',
+          highlight: '#68BF68',
+          // label: 'G'
+          label: '8号'
+        }, {
+          value: $checked.filter('[value=A]').length,
+          color: '#C1232B',
+          highlight: '#D3656A',
+          // label: 'A'
+          label: '9号'
         }];
 
         window.location.hash = '#&page-chart';

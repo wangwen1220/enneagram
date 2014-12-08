@@ -6,7 +6,7 @@
   "main": "main.html",
   "window": {
     "title": "九型人格测试",
-    "icon": "img/app.ico",
+    "icon": "app.png",
     "frame": true,
     "toolbar": false,
     "resizable": false,
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "bootstrap-stylus": ">=0.2.1",
+    "del": "^1.1.0",
     "gulp": ">=3.8.9",
     "gulp-changed": "^1.0.0",
     "gulp-cmd-transport": ">=0.1.1",
@@ -38,6 +39,7 @@
     "gulp-stylus": ">=1.3.0",
     "gulp-uglify": ">=0.3.1",
     "gulp-watch": ">=0.6.9",
+    "gulp-zip": "^2.0.2",
     "nib": ">=1.0.3"
   }
 }
