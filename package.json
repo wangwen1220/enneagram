@@ -3,7 +3,7 @@
   "description": "九型人格测试 Windows 版",
   "version": "1.0.0",
   "author": "Steven",
-  "main": "main.html",
+  "main": "index.html",
   "window": {
     "title": "九型人格测试",
     "icon": "app.png",
