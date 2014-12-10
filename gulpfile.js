@@ -19,7 +19,7 @@ var del = require('del');
 var copy = require('gulp-copy');
 var zip = require('gulp-zip');
 // var imagemin = require('gulp-imagemin');
-// var changed = require('gulp-changed');
+var changed = require('gulp-changed');
 // var watch = require('gulp-watch');
 // var livereload = require('gulp-livereload');
 
