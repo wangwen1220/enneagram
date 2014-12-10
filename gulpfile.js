@@ -11,21 +11,21 @@ var stylus = require('gulp-stylus');
 var coffee = require('gulp-coffee');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var copy = require('gulp-copy');
-var zip = require('gulp-zip');
 // var jshint = require('gulp-jshint');
 // var concat = require('gulp-concat');
 // var clean = require('gulp-clean');
 // var clean = require('gulp-rimraf');
 var del = require('del');
+var copy = require('gulp-copy');
+var zip = require('gulp-zip');
 // var imagemin = require('gulp-imagemin');
 // var changed = require('gulp-changed');
-var watch = require('gulp-watch');
+// var watch = require('gulp-watch');
 // var livereload = require('gulp-livereload');
 
 var app = {
   src: './**',
-  destfile: [
+  destfiles: [
     './*.htm?',
     './package.json',
     './app.png',
@@ -39,7 +39,7 @@ var app = {
     '!./**/*-debug.*',
     '!./**/*-bak.*'
   ],
-  zip: ['./dist/**'],
+  zipfiles: ['./dist/**'],
   dest: 'dist',
   watch: ['./**/*.php', './**/*.htm', './**/*.html', './**/*.css', './**/*.js', './img/**/*'],
 
@@ -59,7 +59,7 @@ var app = {
     debug: 'js/*-debug.js',
     src: 'js/*.js',
     dest: 'js',
-    watch: 'js/*.js'
+    watch: 'js/*-debug.js'
   },
 
   img: {
@@ -69,22 +69,24 @@ var app = {
   }
 };
 
-// 清空目录
-gulp.task('clean', function(cb) {
-  // return gulp.src(app.dest, {read: false})
-  //   .pipe(clean());
-  del(app.dest + '/**', cb);
+// 清空目标文件夹
+gulp.task('clean', function(callback) {
+  del(app.dest, callback);
 });
 
-// 打包文件
-gulp.task('copy', function() {
-  return gulp.src(app.destfile)
+// 复制文件到目标文件夹
+// gulp.task('copy', ['clean'], function() {
+//   return gulp.src(app.destfiles)
+//     .pipe(gulp.dest(app.dest));
+// });
+gulp.task('copy', ['clean'], function() {
+  return gulp.src(app.destfiles)
     .pipe(copy(app.dest));
 });
 
-// 压缩文件
-gulp.task('zip', function() {
-  gulp.src(app.zip)
+// 压缩目标文件夹中的文件
+gulp.task('zip', ['copy'], function() {
+  gulp.src(app.zipfiles)
     .pipe(zip('app.nw'))
     .pipe(gulp.dest(app.dest));
 });
@@ -94,7 +96,7 @@ gulp.task('stylus', function() {
   gulp.src(app.stylus.src)
     .pipe(stylus({
       compress: true,
-      use: [nib()]
+      use: [nibs()]
     }))
     // .pipe(cssmin())
     .pipe(gulp.dest(app.stylus.dest));
@@ -112,7 +114,7 @@ gulp.task('coffee', function() {
 // 合并压缩 JS
 gulp.task('jsmin', function() {
   gulp.src(app.js.debug)
-    .pipe(watch())
+    // .pipe(watch())
     // .pipe(concat('all.js'))
     // .pipe(rename({suffix: '-min'}))
     .pipe(rename(function(path) {
@@ -142,15 +144,15 @@ gulp.task('jsmin', function() {
 gulp.task('watch', function() {
   gulp.watch(app.stylus.watch, ['stylus']);
   // gulp.watch(app.coffee.watch, ['coffee']);
-  gulp.watch(app.js.debug, ['jsmin']);
+  gulp.watch(app.js.watch, ['jsmin']);
   // gulp.watch(app.img.src, ['img']);
 });
 
 // livereload task
 // gulp.task('livereload', function() {
-//   livereload.listen();
-//   gulp.watch(app.watch).on('change', livereload.changed);
-// });
+//   livereload.lissten();
+//  ['copy'],  gulp.watch(app.watch).on('change', livereload.changed);
+// })files;
 
 // The default task (called when you run `gulp` from cli)
 // gulp.task('default', ['stylus', 'coffee', 'jsmin', 'watch']);
