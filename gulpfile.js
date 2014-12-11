@@ -19,7 +19,7 @@ var del = require('del');
 var copy = require('gulp-copy');
 var zip = require('gulp-zip');
 // var imagemin = require('gulp-imagemin');
-var changed = require('gulp-changed');
+// var changed = require('gulp-changed');
 // var watch = require('gulp-watch');
 // var livereload = require('gulp-livereload');
 
@@ -69,8 +69,10 @@ var app = {
   }
 };
 
-// 清空目标文件夹
-gulp.task('clean', function(callback) {
+// 删除目标文件夹
+gulp.task('clean', function(cb) {
+  // return gulp.src(app.dest, {read: false})
+  //   .pipe(clean());
   del(app.dest, callback);
 });
 
