@@ -11,7 +11,7 @@ var stylus = require('gulp-stylus');
 var coffee = require('gulp-coffee');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-// var jshint = require('gulp-jshint');
+var jshint = require('gulp-jshint');
 // var concat = require('gulp-concat');
 // var clean = require('gulp-clean');
 // var clean = require('gulp-rimraf');
@@ -32,11 +32,13 @@ var app = {
     './css/**',
     './js/**',
     './img/**',
-    '!./**/bak/*',
+    '!./**/*-debug.*',
     '!./**/*.styl',
     '!./**/*.coffee',
     '!./**/*.psd',
-    '!./**/*-debug.*',
+    '!./**/bower_components/**',
+    '!./**/spm_modules/**',
+    '!./**/bak/**',
     '!./**/*-bak.*'
   ],
   zipfiles: ['./dist/**'],
@@ -127,11 +129,11 @@ gulp.task('jsmin', function() {
 });
 
 // 检查脚本
-// gulp.task('jshint', function() {
-//   gulp.src(app.js.debug)
-//     .pipe(jshint())
-//     .pipe(jshint.reporter('default'));
-// });
+gulp.task('jshint', function() {
+  gulp.src(app.js.debug)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
 
 // Copy all static images
 // gulp.task('img', function() {
@@ -146,7 +148,7 @@ gulp.task('jsmin', function() {
 gulp.task('watch', function() {
   gulp.watch(app.stylus.watch, ['stylus']);
   // gulp.watch(app.coffee.watch, ['coffee']);
-  gulp.watch(app.js.watch, ['jsmin']);
+  gulp.watch(app.js.watch, ['jshint', 'jsmin']);
   // gulp.watch(app.img.src, ['img']);
 });
 
@@ -158,7 +160,7 @@ gulp.task('watch', function() {
 
 // The default task (called when you run `gulp` from cli)
 // gulp.task('default', ['stylus', 'coffee', 'jsmin', 'watch']);
-gulp.task('default', ['stylus', 'jsmin', 'watch']);
+gulp.task('default', ['stylus', 'jshint', 'jsmin', 'watch']);
 
 // 打包文件到目录
 gulp.task('build', ['clean', 'copy', 'zip']);
