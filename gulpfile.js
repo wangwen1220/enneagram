@@ -100,7 +100,7 @@ gulp.task('stylus', function() {
   gulp.src(app.stylus.src)
     .pipe(stylus({
       compress: true,
-      use: [nibs()]
+      use: [nib()]
     }))
     // .pipe(cssmin())
     .pipe(gulp.dest(app.stylus.dest));
