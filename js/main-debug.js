@@ -100,7 +100,7 @@
           legend: {
             orient: 'vertical',
             x: 'left',
-            data: ['1号', '2号', '3号', '4号', '5号', '6号', '7号', '8号', '9号']
+            data: ['1号: ' + $checked.filter('[value=D]').length, '2号', '3号', '4号', '5号', '6号', '7号', '8号', '9号']
           },
           toolbox: {
             show: true,
@@ -140,30 +140,39 @@
             center: ['50%', '50%'],
             data: [{
               value: $checked.filter('[value=D]').length,
+              label: 'xx',
               name: '1号: ' + $checked.filter('[value=D]').length
             }, {
               value: $checked.filter('[value=F]').length,
+              label: 'label',
               name: '2号'
             }, {
               value: $checked.filter('[value=C]').length,
+              label: 'label',
               name: '3号'
             }, {
               value: $checked.filter('[value=E]').length,
+              label: 'label',
               name: '4号'
             }, {
               value: $checked.filter('[value=H]').length,
+              label: 'label',
               name: '5号'
             }, {
               value: $checked.filter('[value=B]').length,
+              label: 'label',
               name: '6号'
             }, {
               value: $checked.filter('[value=I]').length,
+              label: 'label',
               name: '7号'
             }, {
               value: $checked.filter('[value=J]').length,
+              label: 'label',
               name: '8号'
             }, {
               value: $checked.filter('[value=A]').length,
+              label: 'label',
               name: '9号'
             }]
           }]
