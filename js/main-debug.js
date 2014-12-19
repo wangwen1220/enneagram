@@ -85,11 +85,18 @@
 
         // 初始化图表
         var ichart = echarts.init(document.getElementById('chart'));
+        var testData = {};
+        var tags  = ['D', 'F', 'C', 'E', 'H', 'B', 'I', 'J', 'A'];
+
+        $.each(tags, function(i, v) {
+          testData[v] = $checked.filter('[value=' + v + ']').length || 0;
+        });
+        // console.log(testData);
 
         // 为图表对象加载数据
         ichart.setOption({
           title: {
-            text: '某站点用户访问来源',
+            text: '王红金的九型人格测试图表',
             // subtext: '纯属虚构',
             x: 'center'
           },
@@ -100,7 +107,17 @@
           legend: {
             orient: 'vertical',
             x: 'left',
-            data: ['1号: ' + $checked.filter('[value=D]').length, '2号', '3号', '4号', '5号', '6号', '7号', '8号', '9号']
+            data: [
+              '1号: ' + testData[tags[1]],
+              '2号: ' + testData[tags[2]],
+              '3号: ' + testData[tags[3]],
+              '4号: ' + testData[tags[4]],
+              '5号: ' + testData[tags[5]],
+              '6号: ' + testData[tags[6]],
+              '7号: ' + testData[tags[7]],
+              '8号: ' + testData[tags[8]],
+              '9号: ' + testData[tags[9]]
+            ]
           },
           toolbox: {
             show: true,
@@ -134,46 +151,46 @@
           },
           // calculable: true,
           series: [{
-            name: '访问来源',
+            name: '详细测试结果',
             type: 'pie',
             radius: '55%',
             center: ['50%', '50%'],
             data: [{
-              value: $checked.filter('[value=D]').length,
+              value: testData[tags[1]],
               label: 'xx',
-              name: '1号: ' + $checked.filter('[value=D]').length
+              name: '1号: ' + testData[tags[1]]
             }, {
-              value: $checked.filter('[value=F]').length,
+              value: testData[tags[2]],
               label: 'label',
-              name: '2号'
+              name: '2号: ' + testData[tags[2]]
             }, {
-              value: $checked.filter('[value=C]').length,
+              value: testData[tags[3]],
               label: 'label',
-              name: '3号'
+              name: '3号: ' + testData[tags[3]]
             }, {
-              value: $checked.filter('[value=E]').length,
+              value: testData[tags[4]],
               label: 'label',
-              name: '4号'
+              name: '4号: ' + testData[tags[4]]
             }, {
-              value: $checked.filter('[value=H]').length,
+              value: testData[tags[5]],
               label: 'label',
-              name: '5号'
+              name: '5号: ' + testData[tags[5]]
             }, {
-              value: $checked.filter('[value=B]').length,
+              value: testData[tags[6]],
               label: 'label',
-              name: '6号'
+              name: '6号: ' + testData[tags[6]]
             }, {
-              value: $checked.filter('[value=I]').length,
+              value: testData[tags[7]],
               label: 'label',
-              name: '7号'
+              name: '7号: ' + testData[tags[7]]
             }, {
-              value: $checked.filter('[value=J]').length,
+              value: testData[tags[8]],
               label: 'label',
-              name: '8号'
+              name: '8号: ' + testData[tags[8]]
             }, {
-              value: $checked.filter('[value=A]').length,
+              value: testData[tags[9]],
               label: 'label',
-              name: '9号'
+              name: '9号: ' + testData[tags[9]]
             }]
           }]
         });
