@@ -43,6 +43,13 @@
       }
     };
 
+    // 输入名字
+    $('#js-name').on('keyup', function() {
+      $(this).next('a')[$.trim(this.value) ? 'removeClass' : 'addClass']('disabled');
+    }).on('blur', function() {
+      this.value = $.trim(this.value);
+    });
+
     // 初始化 Swiper
     tests.list = tests.list.splice(-3);
     $swiper[0].innerHTML = template('tests', tests);
