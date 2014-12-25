@@ -25,9 +25,10 @@
     // 通用变量
     var $html = $('html');
     // var $header = $('header');
-    // var $main = $('main');
+    var $username = $('#username');
     var $swiper = $('#swiper-responsive');
     var $counter = $('#js-counter');
+    var animationend = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
     // Mobilebone
     Mobilebone.callback = function(pagein, pageout) {
@@ -44,10 +45,29 @@
     };
 
     // 输入名字
-    $('#js-name').on('keyup', function() {
-      $(this).next('a')[$.trim(this.value) ? 'removeClass' : 'addClass']('disabled');
+    $username.on('keyup', function() {
+      var $btn = $(this).next('a');
+      var val = $.trim(this.value);
+
+      $btn[val ? 'removeClass' : 'addClass']('disabled');
+
+      // 按钮显示效果
+      if (val) {
+        $btn.addClass('animated bounceInDown').one(animationend, function() {
+          $(this).removeClass('animated bounceInDown');
+        });
+      } else {
+        $btn.addClass('animated bounceOutUp').one(animationend, function() {
+          $(this).removeClass('animated bounceOutUp');
+        });
+      }
     }).on('blur', function() {
       this.value = $.trim(this.value);
+    }).trigger('keyup');
+
+    // 如果没有输入姓名，开始按钮默认不可用
+    $('#page-home').on('click', 'a.disabled', function() {
+      return false;
     });
 
     // 初始化 Swiper
@@ -92,6 +112,7 @@
 
         // 初始化图表
         var ichart = echarts.init(document.getElementById('chart'));
+        var username = $username.val();
         var testData = {};
         var tags  = ['D', 'F', 'C', 'E', 'H', 'B', 'I', 'J', 'A'];
 
@@ -103,7 +124,7 @@
         // 为图表对象加载数据
         ichart.setOption({
           title: {
-            text: '王红金的九型人格测试图表',
+            text: username + '的九型人格测试图表',
             // subtext: '纯属虚构',
             x: 'center'
           },

@@ -1,7 +1,10 @@
+@charset 'utf-8'
+
 /*! Main Style by Steven 2014-8-1 */
 
 support-for-ie = false
 
+@import 'animate.css'
 @import 'nib'
 @import 'wcss'
 
@@ -514,6 +517,9 @@ html.mobilebone body
       border-bottom 1px transparent solid
       border-image linear-gradient(left, transparent 25%, rgba(255, 255, 255, .95) 50%, transparent 75%) 1
 
+      &::-webkit-input-placeholder
+        color #ccc
+
     > a
       display inline-block
       margin-top 2rem
@@ -521,10 +527,12 @@ html.mobilebone body
       border 1px #fff solid
       font-size 1.3em
       text-decoration none
+      // transition 1s
 
       &.disabled
-        opacity .4
+        opacity 0
         cursor not-allowed
+        // animation-duration 1s
 
 html.home #footer
   color #fff
@@ -670,13 +678,13 @@ html.home #footer
 
   // Pagination
   .swiper-pagination
-    /* Stylize pagination */
+    // Stylize pagination
 
   .swiper-pagination-switch
-    /* Stylize pagination button */
+    // Stylize pagination button
 
   .swiper-active-switch
-    /* Specific active button style */
+    // Specific active button style
 
   .swiper-visible-switch
-    /* Specific visible button style */
+    // Specific visible button style
