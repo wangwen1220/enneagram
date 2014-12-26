@@ -53,13 +53,12 @@
 
       // 按钮显示效果
       if (val) {
-        $btn.addClass('animated bounceInDown').one(animationend, function() {
-          $(this).removeClass('animated bounceInDown');
-        });
+        // $btn.addClass('animated bounceInDown').one(animationend, function() {
+        //   $(this).removeClass('animated bounceInDown');
+        // });
+        $btn.removeClass('bounceOutUp').addClass('animated bounceInDown');
       } else {
-        $btn.addClass('animated bounceOutUp').one(animationend, function() {
-          $(this).removeClass('animated bounceOutUp');
-        });
+        $btn.removeClass('bounceInDown').addClass('animated bounceOutUp');
       }
     }).on('blur', function() {
       this.value = $.trim(this.value);
@@ -71,7 +70,7 @@
     });
 
     // 初始化 Swiper
-    tests.list = tests.list.splice(-3);
+    // tests.list = tests.list.splice(-3);
     $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
@@ -136,15 +135,15 @@
             orient: 'vertical',
             x: 'left',
             data: [
-              '1号: ' + testData[tags[1]],
-              '2号: ' + testData[tags[2]],
-              '3号: ' + testData[tags[3]],
-              '4号: ' + testData[tags[4]],
-              '5号: ' + testData[tags[5]],
-              '6号: ' + testData[tags[6]],
-              '7号: ' + testData[tags[7]],
-              '8号: ' + testData[tags[8]],
-              '9号: ' + testData[tags[9]]
+              '1号: ' + testData[tags[0]],
+              '2号: ' + testData[tags[1]],
+              '3号: ' + testData[tags[2]],
+              '4号: ' + testData[tags[3]],
+              '5号: ' + testData[tags[4]],
+              '6号: ' + testData[tags[5]],
+              '7号: ' + testData[tags[6]],
+              '8号: ' + testData[tags[7]],
+              '9号: ' + testData[tags[8]]
             ]
           },
           toolbox: {
@@ -184,41 +183,41 @@
             radius: '55%',
             center: ['50%', '50%'],
             data: [{
-              value: testData[tags[1]],
+              value: testData[tags[0]],
               label: 'xx',
-              name: '1号: ' + testData[tags[1]]
+              name: '1号: ' + testData[tags[0]]
+            }, {
+              value: testData[tags[1]],
+              label: 'label',
+              name: '2号: ' + testData[tags[1]]
             }, {
               value: testData[tags[2]],
               label: 'label',
-              name: '2号: ' + testData[tags[2]]
+              name: '3号: ' + testData[tags[2]]
             }, {
               value: testData[tags[3]],
               label: 'label',
-              name: '3号: ' + testData[tags[3]]
+              name: '4号: ' + testData[tags[3]]
             }, {
               value: testData[tags[4]],
               label: 'label',
-              name: '4号: ' + testData[tags[4]]
+              name: '5号: ' + testData[tags[4]]
             }, {
               value: testData[tags[5]],
               label: 'label',
-              name: '5号: ' + testData[tags[5]]
+              name: '6号: ' + testData[tags[5]]
             }, {
               value: testData[tags[6]],
               label: 'label',
-              name: '6号: ' + testData[tags[6]]
+              name: '7号: ' + testData[tags[6]]
             }, {
               value: testData[tags[7]],
               label: 'label',
-              name: '7号: ' + testData[tags[7]]
+              name: '8号: ' + testData[tags[7]]
             }, {
               value: testData[tags[8]],
               label: 'label',
-              name: '8号: ' + testData[tags[8]]
-            }, {
-              value: testData[tags[9]],
-              label: 'label',
-              name: '9号: ' + testData[tags[9]]
+              name: '9号: ' + testData[tags[8]]
             }]
           }]
         });
