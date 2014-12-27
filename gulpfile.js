@@ -75,7 +75,7 @@ var app = {
 gulp.task('clean', function(cb) {
   // return gulp.src(app.dest, {read: false})
   //   .pipe(clean());
-  del(app.dest, callback);
+  del(app.dest, cb);
 });
 
 // 复制文件到目标文件夹

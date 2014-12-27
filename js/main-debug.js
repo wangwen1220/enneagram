@@ -70,7 +70,7 @@
     });
 
     // 初始化 Swiper
-    // tests.list = tests.list.splice(-3);
+    // tests.list = tests.list.splice(-5);
     $swiper[0].innerHTML = template('tests', tests);
 
     $swiper.swiper({
@@ -150,7 +150,7 @@
             show: true,
             feature: {
               mark: {
-                show: true
+                show: false
               },
               dataView: {
                 show: true,
@@ -172,7 +172,7 @@
                 show: true
               },
               saveAsImage: {
-                show: true
+                show: false
               }
             }
           },
