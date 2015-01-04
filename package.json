@@ -8,6 +8,7 @@
     "title": "九型人格测试",
     "icon": "app.png",
     "frame": true,
+    "show": false,
     "toolbar": false,
     "resizable": false,
     "always-on-top": false,
