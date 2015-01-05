@@ -28,7 +28,7 @@ var app = {
   destfiles: [
     './*.htm?',
     './package.json',
-    './app.png',
+    // './app.png',
     './css/**',
     './js/**',
     './img/**',
